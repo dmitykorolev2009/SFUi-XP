@@ -13,7 +13,7 @@ SFUi.static.palette = {
     highlight = Color(10, 255, 0)
 }
 
-function SFUi:initialize(scaling)
+function SFUi:initialize(scaling, screenEntity, screenSizeX, screenSizeY)
     scaling = scaling or {}
     
     self.scaling = {
@@ -27,6 +27,10 @@ function SFUi:initialize(scaling)
         lastHeight = nil
     }
 
+    self.screenSizeX = screenSizeX
+    self.screenSizeY = screenSizeY
+    self.screenEntity = ScreenEntity
+    self.aspectRatio = screenSizeX / screenSizeY
     self.components = {}
     self.preventClick = false
     self.preventType = false
