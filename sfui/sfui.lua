@@ -10,7 +10,7 @@ SFUi.static.palette = {
     hover = Color(75, 75, 75),
     component = Color(45, 45, 45),
     contrast = Color(60, 60, 60),
-    highlight = Color(150, 255, 0)
+    highlight = Color(10, 255, 0)
 }
 
 function SFUi:initialize(scaling)
