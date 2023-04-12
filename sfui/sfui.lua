@@ -30,7 +30,7 @@ function SFUi:initialize(scaling, screenEntity, screenSizeX, screenSizeY)
     self.screenSizeX = screenSizeX
     self.screenSizeY = screenSizeY
     self.screenEntity = ScreenEntity
-    self.aspectRatio = screenSizeX / screenSizeY
+    SFUi.static.aspectRatio = screenSizeX / screenSizeY
     self.components = {}
     self.preventClick = false
     self.preventType = false
