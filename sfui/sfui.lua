@@ -30,7 +30,7 @@ function SFUi:initialize(scaling, screenEntity, screenSizeX, screenSizeY)
     self.screenSizeX = screenSizeX
     self.screenSizeY = screenSizeY
     self.screenEntity = ScreenEntity
-    SFUi.static.aspectRatio = screenSizeX / screenSizeY
+    self.aspectRatio = screenSizeX / screenSizeY
     self.components = {}
     self.preventClick = false
     self.preventType = false
@@ -76,7 +76,7 @@ function SFUi:render()
     local isHUD = not render.getScreenEntity()
     local cursor = nil
     local action = {click = false, held = false, typing = 0}
-    local height = select(2, render.getResolution()) / self.aspectRatio
+    local height = select(2, render.getResolution())
     local scale_pending = nil
 
     local cursorSource = isHUD and {input.getCursorPos()} or {render.cursorPos()}
