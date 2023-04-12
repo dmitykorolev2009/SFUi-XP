@@ -10,10 +10,10 @@ SFUi.static.palette = {
     hover = Color(75, 75, 75),
     component = Color(45, 45, 45),
     contrast = Color(60, 60, 60),
-    highlight = Color(150, 255, 0)
+    highlight = Color(10, 255, 0)
 }
 
-function SFUi:initialize(scaling)
+function SFUi:initialize(scaling, screenEntity, screenSizeX, screenSizeY)
     scaling = scaling or {}
     
     self.scaling = {
@@ -27,6 +27,10 @@ function SFUi:initialize(scaling)
         lastHeight = nil
     }
 
+    self.screenSizeX = screenSizeX
+    self.screenSizeY = screenSizeY
+    self.screenEntity = ScreenEntity
+    self.aspectRatio = screenSizeX / screenSizeY
     self.components = {}
     self.preventClick = false
     self.preventType = false
@@ -72,7 +76,7 @@ function SFUi:render()
     local isHUD = not render.getScreenEntity()
     local cursor = nil
     local action = {click = false, held = false, typing = 0}
-    local height = select(2, render.getResolution())
+    local height = select(2, render.getResolution()) / self.aspectRatio
     local scale_pending = nil
 
     local cursorSource = isHUD and {input.getCursorPos()} or {render.cursorPos()}
