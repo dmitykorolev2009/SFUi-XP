@@ -76,7 +76,7 @@ function SFUi:render()
     local isHUD = not render.getScreenEntity()
     local cursor = nil
     local action = {click = false, held = false, typing = 0}
-    local height = select(2, render.getResolution())
+    local height = select(2, render.getResolution()) / self.aspectRatio
     local scale_pending = nil
 
     local cursorSource = isHUD and {input.getCursorPos()} or {render.cursorPos()}
