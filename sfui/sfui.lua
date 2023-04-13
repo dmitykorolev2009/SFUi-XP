@@ -63,6 +63,8 @@ SFUi.static.palette = {
     contrast = Color(60, 60, 60),
     highlight = Color(0, 40, 215)
 }
+SFUi.static.aspectRatio = 4 / 3
+
 
 function SFUi:initialize(scaling, screenEntity, screenSizeX, screenSizeY)
     scaling = scaling or {}
@@ -81,7 +83,6 @@ function SFUi:initialize(scaling, screenEntity, screenSizeX, screenSizeY)
     self.screenSizeX = screenSizeX
     self.screenSizeY = screenSizeY
     self.screenEntity = screenEntity
-    self.aspectRatio = screenSizeX / screenSizeY
     self.components = {}
     self.preventClick = false
     self.preventType = false

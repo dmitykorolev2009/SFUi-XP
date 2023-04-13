@@ -41,24 +41,24 @@ function Window:render(cursor, action)
     end
 
     render.setColor(self.palette.background)
-    render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.size.y)
+    render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
     render.setColor(self.dragging and self.palette.hover or self.palette.component)
-    render.drawRectOutline(self.mins.x, self.mins.y, self.size.x, self.size.y)
+    render.drawRectOutline(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
     render.setColor(self.dragging and self.palette.hover or self.palette.component)
-    render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.barheight)
+    render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.barheight * self.aspectRatio)
 
     render.setColor(self.palette.foreground)
     render.drawSimpleText(self.mins.x + 5, self.mins.y, self.title, TEXT_ALIGN.LEFT, TEXT_ALIGN.TOP)
 
     if self.closehides ~= nil then
         render.setColor((self.dragging or self.extrahover.close) and self.palette.hover or self.palette.component)
-        render.drawRectFast(self.maxs.x - self.barheight, self.mins.y, self.barheight, self.barheight)
+        render.drawRectFast(self.maxs.x - self.barheight, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
 
         render.setColor((self.extrahover.close and self.action.held) and self.palette.highlight or self.palette.foreground)
-        render.drawLine(self.maxs.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.25, self.maxs.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.75)
-        render.drawLine(self.maxs.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.75, self.maxs.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.25)
+        render.drawLine(self.maxs.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.25, self.maxs.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.75 * self.aspectRatio)
+        render.drawLine(self.maxs.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.75, self.maxs.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.25 * self.aspectRatio)
     end
 
     if self.dragging and self.drag.delta then
