@@ -60,8 +60,8 @@ SFUi.static.palette = {
     background = Color(255, 255, 255),
     hover = Color(0, 90, 240),
     WindowTitle = Color(255, 255, 255),
-    component = Color(125, 160, 230),
-    contrast = Color(60, 60, 60),
+    component = Color(75, 160, 230),
+    contrast = Color(240, 90, 0),
     highlight = Color(0, 40, 215)
 }
 
