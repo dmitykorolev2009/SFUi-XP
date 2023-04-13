@@ -34,7 +34,7 @@ local function RayFaceIntersection( Start, Dir, Pos, Normal, Size, Rotation )
 
     if (hitPos) then
 
-        faceAngle = Normal:getAngle()+Angle(0,0,Rotation)
+        local faceAngle = Normal:getAngle()+Angle(0,0,Rotation)
 
         local localHitPos = worldToLocal( hitPos, Angle(0,0,0), Pos, faceAngle )
 
