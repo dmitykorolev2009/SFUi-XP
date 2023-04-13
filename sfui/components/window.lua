@@ -105,8 +105,8 @@ function Window:render(cursor, action)
                 render.drawRect(self.mins.x + self.size.x - self.barheight, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
             
                 render.setColor((self.extrahover.close and self.action.held) and self.palette.highlight or self.palette.foreground)
-                render.drawLine(self.mins.x + self.size.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.25, self.mins.x + self.size.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.75 * self.aspectRatio)
-                render.drawLine(self.mins.x + self.size.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.75, self.mins.x + self.size.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.25 * self.aspectRatio)
+                render.drawLine(self.mins.x + self.size.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.25 * self.aspectRatio, self.mins.x + self.size.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.75 * self.aspectRatio)
+                render.drawLine(self.mins.x + self.size.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.75 * self.aspectRatio, self.mins.x + self.size.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.25 * self.aspectRatio)
             end
             //
     
