@@ -99,7 +99,7 @@ function Window:render(cursor, action)
             self.override_design(self)
         else
             render.setColor(self.palette.background)
-            render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
+            render.drawRectFast(self.mins.x, self.mins.y + self.barheight * self.aspectRatio, self.size.x, self.size.y * self.aspectRatio)
 
             render.setColor((self.focus.allowed or self.dragging or self.hold_resize) and self.palette.hover or self.palette.component)
             render.drawRectOutline(self.mins.x, self.mins.y + self.barheight * self.aspectRatio, self.size.x, (self.size.y - self.barheight) * self.aspectRatio, 3)
