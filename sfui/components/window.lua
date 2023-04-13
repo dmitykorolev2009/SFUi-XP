@@ -121,8 +121,8 @@ function Window:render(cursor, action)
 
                 render.setColor(Color(255,255,255))
 
-                render.drawRect(self.mins.x + self.size.x - self.barheight*2, self.mins.y + 3, self.barheight, 2)
-                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2, self.mins.y + 3, self.barheight, (self.barheight - 4) * self.aspectRatio)
+                render.drawRect(self.mins.x + self.size.x - self.barheight*2, self.mins.y + 3, self.barheight - 4, 3)
+                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2, self.mins.y + 3, self.barheight - 4, (self.barheight - 4) * self.aspectRatio)
             end
             //
     
