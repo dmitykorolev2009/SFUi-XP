@@ -56,12 +56,12 @@ end
 SFUi = class("SFUi")
 
 SFUi.static.palette = {
-    foreground = Color(255, 255, 255),
-    background = Color(30, 30, 30),
-    hover = Color(75, 75, 75),
-    component = Color(45, 45, 45),
+    foreground = Color(0, 0, 0),
+    background = Color(255, 255, 255),
+    hover = Color(0, 90, 240),
+    component = Color(125, 160, 230),
     contrast = Color(60, 60, 60),
-    highlight = Color(10, 255, 0)
+    highlight = Color(0, 40, 215)
 }
 
 function SFUi:initialize(scaling, screenEntity, screenSizeX, screenSizeY)
