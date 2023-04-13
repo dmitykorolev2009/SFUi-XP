@@ -41,7 +41,11 @@ function Window:render(cursor, action)
 
     if self.action.click then
         if self.resize_hover and self.resizable then
-            self.hold_at = self.size - math.round(cursor / Vector(1, self.aspectRatio))
+
+            local cur = cursor / Vector(1, self.aspectRatio)
+            cur:round(0)
+
+            self.hold_at = self.size - cur)
             self.hold_resize = true
         end
 
@@ -77,7 +81,11 @@ function Window:render(cursor, action)
     end
 
     if self.resizable then
-        if self.hold_resize and cursor then self.size = math.round(cursor / Vector(1, self.aspectRatio)) + self.hold_at end
+
+        local cur = cursor / Vector(1, self.aspectRatio)
+        cur:round(0)
+
+        if self.hold_resize and cursor then self.size = cur + self.hold_at end
     end
     self.size.x = math.clamp(self.size.x,self.minimum_size.x,self.maximum_size.x)
     self.size.y = math.clamp(self.size.y,self.minimum_size.y,self.maximum_size.y)
