@@ -64,6 +64,11 @@ SFUi.static.palette = {
     contrast = Color(60, 60, 60),
     highlight = Color(0, 40, 215)
 }
+
+SFUi.static.materials = {
+    WindowCloseMat = material.createFromImage("icon16/cancel.png", ""),
+}
+
 SFUi.static.aspectRatio = 4 / 3
 
 

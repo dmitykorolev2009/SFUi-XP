@@ -101,12 +101,9 @@ function Window:render(cursor, action)
 
             //close
             if self.closehides then
-                render.setColor(self.extrahover.close and Color(255,70,70) or Color(0,0,0,0))
-                render.drawRect(self.mins.x + self.size.x - self.barheight, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
-            
-                render.setColor((self.extrahover.close and self.action.held) and self.palette.highlight or self.palette.foreground)
-                render.drawLine(self.mins.x + self.size.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.25 * self.aspectRatio, self.mins.x + self.size.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.75 * self.aspectRatio)
-                render.drawLine(self.mins.x + self.size.x - self.barheight * 0.75, self.mins.y + self.barheight * 0.75 * self.aspectRatio, self.mins.x + self.size.x - self.barheight * 0.25, self.mins.y + self.barheight * 0.25 * self.aspectRatio)
+                render.setColor(Color())
+                render.setMaterial(self.materials.WindowCloseMat)
+                render.drawTexturedRect(self.mins.x + self.size.x - self.barheight, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
             end
             //
     
