@@ -5,6 +5,7 @@ function Component:initialize(parent, pos, size)
     self.size = size or Vector()
     self.parent = parent
     self.palette = table.copy(self.parent and self.parent.palette or SFUi.palette)
+    self.materials = table.copy(self.parent and self.parent.materials or SFUi.materials)
     self.aspectRatio = SFUi.aspectRatio
     self.root = nil
     self.mins = nil
