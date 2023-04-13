@@ -12,7 +12,7 @@ function Button:render(cursor, action)
     render.drawRoundedBox(5, self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
     render.setColor(Color(230, 230, 230))
-    render.drawRoundedBox(5, self.mins.x + 3, self.mins.y + 3, self.size.x - 6, (self.size.y - 6) * self.aspectRatio)
+    render.drawRoundedBox(5, self.mins.x + 3, self.mins.y + 3 * self.aspectRatio, self.size.x - 6, (self.size.y - 6) * self.aspectRatio)
 
     render.setColor(Color(0, 0, 0))
     render.drawSimpleText(self.center.x, self.center.y, self.text, TEXT_ALIGN.CENTER, TEXT_ALIGN.CENTER)
