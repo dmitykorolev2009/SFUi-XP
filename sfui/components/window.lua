@@ -113,14 +113,6 @@ function Window:render(cursor, action)
                 render.drawRect(self.mins.x + self.size.x - self.barheight*2, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
         
                 render.setColor(Color(255,255,255))
-                    
-                local start_pos = Vector(self.mins.x + 2 + self.size.x - self.barheight*2,self.mins.y+4)
-                another_render.drawStripLine({
-                    start_pos,
-                    start_pos + Vector(self.barheight-5,0),
-                    start_pos + Vector(self.barheight-5,self.barheight-8 * self.aspectRatio),
-                    start_pos + Vector(0,self.barheight-8 * self.aspectRatio)
-                })
             end
             //
     
