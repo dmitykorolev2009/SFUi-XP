@@ -125,22 +125,6 @@ function Window:render(cursor, action)
                 render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 4, self.mins.y + 5, self.barheight - 8, (self.barheight - 8) * self.aspectRatio, 1)
             end
             //
-    
-            if self.resizable then
-                render.setColor((self.resize_hover or self.hold_resize) and self.palette.highlight or self.palette.component)
-                another_render.roundedBoxEx(self.mins.x + self.size.x - self.barheight, self.mins.y + self.size.y - self.barheight, self.barheight, self.barheight * self.aspectRatio, 0, 0, 0, 5)
-                
-                render.setColor(Color(255,255,255))
-                for i=1, 4 do
-                    local x1,y1 = math.cos(math.pi/4 + (i/4) * (math.pi*2)) * (self.barheight/2-2),math.sin(math.pi/4 + (i/4) * (math.pi*2)) * (self.barheight/2-2)
-                    local x2,y2 = math.cos(math.pi/4 + (i/4) * (math.pi*2)) * 2,math.sin(math.pi/4 + (i/4) * (math.pi*2)) * 2
-    
-                    local cx = self.mins.x+self.size.x - self.barheight/2
-                    local cy = self.mins.y+self.size.y - self.barheight/2
-                    
-                    render.drawLine(cx + x1,cy + y1 * self.aspectRatio,cx + x2,cy + y2 * self.aspectRatio)
-                end
-            end
         end
     end
     
