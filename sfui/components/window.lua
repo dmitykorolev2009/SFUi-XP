@@ -43,17 +43,17 @@ function Window:render(cursor, action)
     render.setColor(self.palette.background)
     render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
-    render.setColor(self.focus.allowed and self.palette.hover or self.palette.component)
+    render.setColor((self.focus.allowed or self.dragging) and self.palette.hover or self.palette.component)
     render.drawRectOutline(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
-    render.setColor(self.focus.allowed and self.palette.hover or self.palette.component)
+    render.setColor((self.focus.allowed or self.dragging) and self.palette.hover or self.palette.component)
     render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.barheight * self.aspectRatio)
 
     render.setColor(self.palette.foreground)
     render.drawSimpleText(self.mins.x + 5, self.mins.y, self.title, TEXT_ALIGN.LEFT, TEXT_ALIGN.TOP)
 
     if self.closehides ~= nil then
-        render.setColor((self.dragging or self.extrahover.close) and self.palette.hover or self.palette.component)
+        render.setColor(( (self.focus.allowed or self.dragging) or self.extrahover.close) and self.palette.hover or self.palette.component)
         render.drawRectFast(self.maxs.x - self.barheight, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
 
         render.setColor((self.extrahover.close and self.action.held) and self.palette.highlight or self.palette.foreground)
