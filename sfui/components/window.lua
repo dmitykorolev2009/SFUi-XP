@@ -110,23 +110,23 @@ function Window:render(cursor, action)
     
             //maximise
             if self.can_maximise and self.resizable then
-                render.setColor(self.maximise_hover and self.palette.highlight or Color(0,0,0,0))
-                render.drawRect(self.mins.x + self.size.x - self.barheight*2, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
         
                 render.setColor(Color(255,255,255))
-                    
-                local start_pos = Vector(self.mins.x + 2 + self.size.x - self.barheight*2,self.mins.y+4)
-                another_render.drawStripLine({
-                    start_pos,
-                    start_pos + Vector(self.barheight-5,0),
-                    start_pos + Vector(self.barheight-5,self.barheight-8 * self.aspectRatio),
-                    start_pos + Vector(0,self.barheight-8 * self.aspectRatio)
-                })
+
+                render.drawRoundedBox(15, self.mins.x + self.size.x - self.barheight*2, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
+
+                render.setColor((self.focus.allowed or self.dragging) and self.palette.hover or self.palette.component)
+
+                render.drawRoundedBox(15, self.mins.x + self.size.x - self.barheight*2 + 0.5, self.mins.y + 0.5 * self.aspectRatio, self.barheight - 1, (self.barheight - 1) * self.aspectRatio)
+
+                render.setColor(Color(255,255,255))
+
+                render.drawRect(self.mins.x + self.size.x - self.barheight*2, self.mins.y, self.barheight, 2)
             end
             //
     
             if self.resizable then
-                render.setColor((self.resize_hover or self.hold_resize) and self.palette.highlight or Color(0,0,0,0))
+                render.setColor((self.resize_hover or self.hold_resize) and self.palette.highlight or self.palette.component)
                 another_render.roundedBoxEx(self.mins.x + self.size.x - self.barheight, self.mins.y + self.size.y - self.barheight, self.barheight, self.barheight * self.aspectRatio, 0, 0, 0, 5)
                 
                 render.setColor(Color(255,255,255))
