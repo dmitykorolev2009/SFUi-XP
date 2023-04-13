@@ -95,7 +95,7 @@ function Window:render(cursor, action)
             render.drawRectOutline(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio, 3)
 
             render.setColor((self.focus.allowed or self.dragging) and self.palette.hover or self.palette.component)
-            render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.barheight * self.aspectRatio)
+            render.drawRoundedBoxEx(15, self.mins.x, self.mins.y, self.size.x, self.barheight * self.aspectRatio, true, true, false, false)
 
             render.setColor(self.palette.WindowTitle)
             render.drawSimpleText(self.mins.x + 5, self.mins.y, self.title, TEXT_ALIGN.LEFT, TEXT_ALIGN.TOP)
