@@ -136,7 +136,6 @@ function SFUi:render()
         local cursorSource = self.screenEntity:worldToLocal(CGPos) / Vector(self.screenSizeY, self.screenSizeX, 0.02) + Vector(0.5)
         if cursorSource[1] and cursorSource[2] then
             cursor = Vector(cursorSource[2], cursorSource[1]) * 1024
-            print(cursor)
         end
     end
 
