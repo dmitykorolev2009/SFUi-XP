@@ -48,20 +48,22 @@ function Component:updateFocus()
 end
 
 function Component:updatePos()
+
+    local HMS = Vector(self.size.x, self.size.y * self.aspectRatio)
+
     self.mins = self.pos
     if self.parent then
         self.mins = self.parent.mins + self.mins
     end
-    self.center = self.mins + self.size / 2
-    self.maxs = self.mins + self.size
+    self.center = self.mins + HMS / 2
+
+    self.maxs = self.mins + HMS
 end
 
 function Component:updateHover(cursor)
     if cursor and self.focus.allowed then
 
-        local HM = Vector(self.maxs.x, self.maxs.y * self.aspectRatio)
-
-        self.hover = cursor:withinAABox(self.mins, HM)
+        self.hover = cursor:withinAABox(self.mins, self.maxs)
     else
         self.hover = false
     end
