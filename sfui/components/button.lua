@@ -8,13 +8,13 @@ end
 
 function Button:render(cursor, action)
     render.setColor(self.hover and self.palette.contrast or self.palette.component)
-    render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.size.y)
+    render.drawRectFast(self.mins.x, self.mins.y * self.aspectRatio, self.size.x, self.size.y * self.aspectRatio)
 
     render.setColor(self.action.held and self.palette.highlight or self.palette.contrast)
-    render.drawRectOutline(self.mins.x, self.mins.y, self.size.x, self.size.y)
+    render.drawRectOutline(self.mins.x, self.mins.y * self.aspectRatio, self.size.x, self.size.y * self.aspectRatio)
 
     render.setColor(self.action.held and self.palette.highlight or self.palette.foreground)
-    render.drawSimpleText(self.center.x, self.center.y, self.text, TEXT_ALIGN.CENTER, TEXT_ALIGN.CENTER)
+    render.drawSimpleText(self.center.x, self.center.y * self.aspectRatio, self.text, TEXT_ALIGN.CENTER, TEXT_ALIGN.CENTER)
 
     if self.action.click and self.callback then
         self.callback()
