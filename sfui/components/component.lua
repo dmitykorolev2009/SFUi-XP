@@ -60,6 +60,8 @@ function Component:updateHover(cursor)
 
         local HM = Vector(self.maxs.x, self.maxs.y * self.aspectRatio)
 
+        print(HM)
+
         self.hover = cursor:withinAABox(self.mins, HM)
     else
         self.hover = false
