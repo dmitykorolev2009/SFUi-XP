@@ -122,10 +122,7 @@ function SFUi:hoveredComponent(cursor)
     end
 
     for index, component in ipairs(self.components) do
-
-        local HM = Vector(component.maxs.x, component.maxs.y * SFUi.aspectRatio)
-
-        if component.visible and cursor:withinAABox(component.mins, HM) then
+        if component.visible and cursor:withinAABox(component.mins, component.maxs) then
             return component
         end
     end
