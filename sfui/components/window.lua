@@ -102,7 +102,7 @@ function Window:render(cursor, action)
             render.drawRectFast(self.mins.x, self.mins.y + self.barheight * self.aspectRatio, self.size.x, self.size.y * self.aspectRatio)
 
             render.setColor((self.focus.allowed or self.dragging or self.hold_resize) and self.palette.hover or self.palette.component)
-            render.drawRectOutline(self.mins.x, self.mins.y + self.barheight * self.aspectRatio, self.size.x, (self.size.y - self.barheight) * self.aspectRatio, 3)
+            render.drawRectOutline(self.mins.x, self.mins.y + self.barheight * self.aspectRatio, self.size.x, self.size.y * self.aspectRatio, 3)
 
             render.drawRoundedBoxEx(45, self.mins.x, self.mins.y, self.size.x, self.barheight * self.aspectRatio, true, true, false, false)
 
