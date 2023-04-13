@@ -81,11 +81,13 @@ function Window:render(cursor, action)
     end
 
     if self.resizable then
+        if self.hold_resize and cursor then
 
-        local cur = cursor / Vector(1, self.aspectRatio)
-        cur:round(0)
+            local cur = cursor / Vector(1, self.aspectRatio)
+            cur:round(0)
 
-        if self.hold_resize and cursor then self.size = cur + self.hold_at end
+            self.size = cur + self.hold_at 
+        end
     end
     self.size.x = math.clamp(self.size.x,self.minimum_size.x,self.maximum_size.x)
     self.size.y = math.clamp(self.size.y,self.minimum_size.y,self.maximum_size.y)
