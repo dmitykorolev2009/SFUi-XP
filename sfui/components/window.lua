@@ -45,7 +45,7 @@ function Window:render(cursor, action)
             local cur = cursor / Vector(1, self.aspectRatio)
             cur:round(0)
 
-            self.hold_at = self.size - cur)
+            self.hold_at = self.size - cur
             self.hold_resize = true
         end
 
