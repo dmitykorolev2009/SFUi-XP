@@ -11,7 +11,7 @@ function Button:render(cursor, action)
     render.setColor(self.action.held and self.palette.contrast or self.palette.hover)
     render.drawRoundedBox(5, self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
-    render.setColor(5, Color(230, 230, 230))
+    render.setColor(Color(230, 230, 230))
     render.drawRoundedBox(5, self.mins.x + 1, self.mins.y + 1, self.size.x - 2, (self.size.y - 2) * self.aspectRatio)
 
     render.setColor(Color(0, 0, 0))
