@@ -131,14 +131,15 @@ function Window:render(cursor, action)
 
                 render.setColor(Color(255,255,255))
 
-                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 4, self.mins.y + 5, self.barheight - 8, 3)
-                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 4, self.mins.y + 5, self.barheight - 8, (self.barheight - 8) * self.aspectRatio, 1)
+                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 5, self.mins.y + 5, self.barheight - 8, 3)
+                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 5, self.mins.y + 5, self.barheight - 8, (self.barheight - 8) * self.aspectRatio, 1)
             end
             //
         end
     end
     
     if self.dragging and self.drag.delta then
+        self.drag.delta:round(0)
         self.pos = self.pos + self.drag.delta
     end
 
