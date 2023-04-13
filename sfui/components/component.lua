@@ -13,7 +13,7 @@ function Component:initialize(parent, pos, size)
     self.maxs = nil
     self.hover = false
     self.visible = true
-    self.lastclicked = 0
+    self.lastclicked = timer.realtime()
     self.children = {}
     self.focus = {
         component = nil,
