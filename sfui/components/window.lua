@@ -117,7 +117,7 @@ function Window:render(cursor, action)
 
                 render.setColor((self.focus.allowed or self.dragging) and self.palette.hover or self.palette.component)
 
-                render.drawRoundedBox(15, self.mins.x + self.size.x - self.barheight*2 + 0.5, self.mins.y + 0.5 * self.aspectRatio, self.barheight - 1, (self.barheight - 1) * self.aspectRatio)
+                render.drawRoundedBox(15, self.mins.x + self.size.x - self.barheight*2 - 0.5, self.mins.y - 0.5 * self.aspectRatio, self.barheight - 1, (self.barheight - 1) * self.aspectRatio)
 
                 render.setColor(Color(255,255,255))
 
