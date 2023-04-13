@@ -122,16 +122,16 @@ function Window:render(cursor, action)
         
                 render.setColor(Color(255,255,255))
 
-                render.drawRoundedBox(5, self.mins.x + self.size.x - self.barheight*2, self.mins.y, self.barheight, self.barheight * self.aspectRatio)
+                render.drawRoundedBox(5, self.mins.x + self.size.x - self.barheight*2 + 0.5, self.mins.y + self.aspectRatio / 2, self.barheight - 1, (self.barheight - 1) * self.aspectRatio)
 
                 render.setColor((self.focus.allowed or self.dragging or self.hold_resize) and self.palette.hover or self.palette.component)
 
-                render.drawRoundedBox(5, self.mins.x + self.size.x - self.barheight*2 + 1, self.mins.y + 1, self.barheight - 2, (self.barheight - 2) * self.aspectRatio)
+                render.drawRoundedBox(5, self.mins.x + self.size.x - self.barheight*2 + 1.5, self.mins.y + 1.5, self.barheight - 3, (self.barheight - 3) * self.aspectRatio)
 
                 render.setColor(Color(255,255,255))
 
-                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 4, self.mins.y + 4, self.barheight - 8, 3)
-                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 4, self.mins.y + 4, self.barheight - 8, (self.barheight - 8) * self.aspectRatio, 1)
+                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 4, self.mins.y + 4, self.barheight - 7, 3)
+                render.drawRectOutline(self.mins.x + self.size.x - self.barheight*2 + 4, self.mins.y + 4, self.barheight - 7, (self.barheight - 8) * self.aspectRatio, 1)
             end
             //
         end
