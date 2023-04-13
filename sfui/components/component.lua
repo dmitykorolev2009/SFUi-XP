@@ -57,7 +57,10 @@ end
 
 function Component:updateHover(cursor)
     if cursor and self.focus.allowed then
-        self.hover = cursor:withinAABox(self.mins, self.maxs)
+
+        local HM = Vector(self.maxs.x, self.maxs.y * self.aspectRatio)
+
+        self.hover = cursor:withinAABox(self.mins, HM)
     else
         self.hover = false
     end
