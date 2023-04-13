@@ -43,10 +43,10 @@ function Window:render(cursor, action)
     render.setColor(self.palette.background)
     render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
-    render.setColor(self.dragging and self.palette.hover or self.palette.component)
+    render.setColor(self.focus.allowed and self.palette.hover or self.palette.component)
     render.drawRectOutline(self.mins.x, self.mins.y, self.size.x, self.size.y * self.aspectRatio)
 
-    render.setColor(self.dragging and self.palette.hover or self.palette.component)
+    render.setColor(self.focus.allowed and self.palette.hover or self.palette.component)
     render.drawRectFast(self.mins.x, self.mins.y, self.size.x, self.barheight * self.aspectRatio)
 
     render.setColor(self.palette.foreground)
