@@ -26,7 +26,7 @@ function Window:render(cursor, action)
     self.barheight = select(2, render.getTextSize(self.title))
 
     if not self.hold_resize then self.hold_resize = false end
-    if not self.maximum_size then self.maximum_size = self.size end
+    if not self.maximum_size then self.maximum_size = Vector(1024, 768) - Vector(0,45) end
     if not self.minimum_size then self.minimum_size = self.size end
 
     if not self.pos_before_maximise then self.pos_before_maximise = self.pos end
