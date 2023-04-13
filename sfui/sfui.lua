@@ -131,11 +131,12 @@ function SFUi:render()
     local scale_pending = nil
 
     local CGPos = RayFaceIntersection( player():getShootPos(), player():getAimVector(), self.screenEntity:getPos(), self.screenEntity:getUp(), Vector(self.screenSizeX, self.screenSizeY, 0.02), 0 )
-    
+
     if CGPos then
         local cursorSource = self.screenEntity:worldToLocal(CGPos) / Vector(self.screenSizeX, self.screenSizeY, 0.02) + Vector(0.5)
         if cursorSource[1] and cursorSource[2] then
             cursor = Vector(cursorSource[2], cursorSource[1])
+            print(cursor)
         end
     end
 
