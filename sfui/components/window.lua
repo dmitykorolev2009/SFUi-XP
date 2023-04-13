@@ -58,6 +58,8 @@ function Window:render(cursor, action)
             elseif self.is_maximised == 0 then
                 self.size = self.size_before_maximise
                 self.pos = self.pos_before_maximise
+
+                print(self.size)
             end
         end
 
