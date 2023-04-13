@@ -130,12 +130,12 @@ function SFUi:render()
     local height = select(2, render.getResolution())
     local scale_pending = nil
 
-    local CGPos = RayFaceIntersection( player():getShootPos(), player():getAimVector(), self.screenEntity:getPos(), self.screenEntity:getUp(), Vector(self.screenSizeX, self.screenSizeY, 0.02), 0 )
+    local CGPos = RayFaceIntersection( player():getShootPos(), player():getAimVector(), self.screenEntity:getPos(), self.screenEntity:getUp(), Vector(self.screenSizeY, self.screenSizeX, 0.02), 0 )
 
     if CGPos then
-        local cursorSource = self.screenEntity:worldToLocal(CGPos) / Vector(self.screenSizeX, self.screenSizeY, 0.02) + Vector(0.5)
+        local cursorSource = self.screenEntity:worldToLocal(CGPos) / Vector(self.screenSizeY, self.screenSizeX, 0.02) + Vector(0.5)
         if cursorSource[1] and cursorSource[2] then
-            cursor = Vector(cursorSource[2], cursorSource[1])
+            cursor = Vector(cursorSource[2], cursorSource[1]) * 1024
             print(cursor)
         end
     end
