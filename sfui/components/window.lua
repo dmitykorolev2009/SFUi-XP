@@ -53,6 +53,7 @@ function Window:render(cursor, action)
                 self.pos_before_maximise = self.pos
                 self.size_before_maximise = self.size
                 self.size = Vector(select(render.getResolution(), 1), select(render.getResolution(), 2)) - Vector(0,45)
+                print(self.size)
                 self.pos = Vector(0,0)
             elseif self.is_maximised == 0 then
                 self.size = self.size_before_maximise
