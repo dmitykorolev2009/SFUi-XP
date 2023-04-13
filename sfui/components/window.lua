@@ -53,13 +53,11 @@ function Window:render(cursor, action)
                 self.pos_before_maximise = self.pos
                 self.size_before_maximise = self.size
                 self.size = Vector(1024, 768) - Vector(0,45)
-                print(self.size)
                 self.pos = Vector(0,0)
             elseif self.is_maximised == 0 then
                 self.size = self.size_before_maximise
                 self.pos = self.pos_before_maximise
-
-                print(self.size)
+                
             end
         end
 
