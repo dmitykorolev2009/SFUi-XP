@@ -121,8 +121,8 @@ function Window:render(cursor, action)
                 another_render.drawStripLine({
                     start_pos,
                     start_pos + Vector(self.barheight-5,0),
-                    start_pos + Vector(self.barheight-5,self.barheight-8),
-                    start_pos + Vector(0,self.barheight-8)
+                    start_pos + Vector(self.barheight-5,self.barheight-8 * self.aspectRatio),
+                    start_pos + Vector(0,self.barheight-8 * self.aspectRatio)
                 })
             end
             //
@@ -139,7 +139,7 @@ function Window:render(cursor, action)
                     local cx = self.mins.x+self.size.x - self.barheight/2
                     local cy = self.mins.y+self.size.y - self.barheight/2
                     
-                    render.drawLine(cx + x1,cy + y1,cx + x2,cy + y2 * self.aspectRatio)
+                    render.drawLine(cx + x1,cy + y1 * self.aspectRatio,cx + x2,cy + y2 * self.aspectRatio)
                 end
             end
         end
