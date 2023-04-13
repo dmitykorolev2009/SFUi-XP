@@ -2,6 +2,57 @@
 -- https://github.com/itisluiz/SFUi/
 -- Version 0.3
 
+local function RayPlaneIntersection( Start, Dir, Pos, Normal )
+
+    local A = Normal:dot(Dir)
+
+    -- Check if the ray is aiming towards the plane (fail if it origin behind the plane, but that is checked later)
+    if (A < 0) then
+
+        local B = Normal:dot(Pos-Start)
+
+        -- Check if the ray origin in front of plane
+        if (B < 0) then
+            return (Start + Dir * (B/A))
+        end
+
+    -- Check if the ray is parallel to the plane
+    elseif (A == 0) then
+
+        -- Check if the ray origin inside the plane
+        if (Normal:dot(Pos-Start) == 0) then
+            return Start
+        end
+
+    end
+    return false
+end
+
+local function RayFaceIntersection( Start, Dir, Pos, Normal, Size, Rotation )
+
+    local hitPos = RayPlaneIntersection( Start, Dir, Pos, Normal )
+
+    if (hitPos) then
+
+        faceAngle = Normal:getAngle()+Angle(0,0,Rotation)
+
+        local localHitPos = worldToLocal( hitPos, Angle(0,0,0), Pos, faceAngle )
+
+        local min = Size/-2
+        local max = Size/2
+        
+        if (localHitPos.z >= min.x and localHitPos.z <= max.x) then
+            if (localHitPos.y >= min.y and localHitPos.y <= max.y) then
+
+                return hitPos
+
+            end
+        end
+
+    end
+    return false
+end
+
 SFUi = class("SFUi")
 
 SFUi.static.palette = {
@@ -79,9 +130,10 @@ function SFUi:render()
     local height = select(2, render.getResolution())
     local scale_pending = nil
 
-    local cursorSource = isHUD and {input.getCursorPos()} or {render.cursorPos()}
+    local CGPos = RayFaceIntersection( player():getShootPos(), player():getAimVector(), self.screenEntity:getPos(), self.screenEntity:getUp(), Vector(self.screenSizeX, self.screenSizeY, 0.02), 0 )
+    local cursorSource = self.screenEntity:worldToLocal(CGPos) / Vector(self.screenSizeX, self.screenSizeY, 0.02) + Vector(0.5)
     if cursorSource[1] and cursorSource[2] then
-        cursor = Vector(cursorSource[1], cursorSource[2])
+        cursor = Vector(cursorSource[2], cursorSource[1])
     end
 
     local playerTyping = player():isTyping()
